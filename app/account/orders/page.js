@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
@@ -12,7 +12,7 @@ const STATUS_COLORS = {
   cancelled: "bg-brick/10 text-brick",
 };
 
-export default function OrdersPage() {
+function OrdersContent() {
   const { user, loading } = useAuth();
   const searchParams = useSearchParams();
   const [orders, setOrders] = useState([]);
@@ -74,5 +74,13 @@ export default function OrdersPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function OrdersPage() {
+  return (
+    <Suspense fallback={<div className="py-16 text-center text-ink/50">Loading...</div>}>
+      <OrdersContent />
+    </Suspense>
   );
 }
