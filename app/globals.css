@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-canvas text-ink font-body;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* Hand-written bazaar-style price tag: a rotated ticket with a mono-digit price */
+  .price-tag {
+    @apply relative inline-flex items-baseline gap-1 font-mono font-bold text-teal;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-sm bg-teal px-5 py-2.5 text-sm font-semibold text-canvas transition hover:bg-teal-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-sm border border-teal px-5 py-2.5 text-sm font-semibold text-teal transition hover:bg-teal hover:text-canvas focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron;
+  }
+
+  .input-field {
+    @apply w-full rounded-sm border border-ink/20 bg-canvas px-3 py-2 text-sm focus:border-teal focus:outline-none;
+  }
+}
